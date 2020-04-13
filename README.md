@@ -1,16 +1,16 @@
 # chillVibes
 
-ChillVibes is a web application that plays music based on the facial expressions captured through the webcam. This is done using Azure facial recognition and Spotify Web API.
+ChillVibes is a web application that plays music based on the facial expressions captured through the webcam. This is done using AWS Amazon Rekognition and Spotify Web API.
 
 ChillVibes is split into mulpiple programs that perform different functions.
 
 # moodQuantifier
 
-moodQuantifier receives a screenshot from the webcam and returns a scoring chart of emotions portrayed by all the faces (if any) present in the image. This is done using Microsoft Azure Facial Recognition, which is capable of detecting the following emotions: emotion, anger, contempt, disgust, fear, happiness, neutral, sadness, suprise. moodQuantifer first sends the image (screenshot) through a Azure REST API. With scores returned from Azure, moodQuantifier then reads the emotion score of all the emotions for each face from the JSON and calculates a combined score for all the emotions, and returns an object with a score for each emotion.
+moodQuantifier receives a screenshot from the webcam and returns emotions present in the image, along with each level of confidence. This is done using Amazon Rekognition, which is capable of detecting the following emotions: happy, sad, angry, confused, disgusted, surprised, calm, unknown, fear. moodQuantifer first sends the image (screenshot) through Amazon Rekognition API. With scores returned, moodQuantifier then combines all scores and returns a score for each emotion.
 
 # whatsTheVibe
 
-whatsTheVibe receives an object containing 9 emotion scores: emotion, anger, contempt, disgust, fear, happiness, neutral, sadness, suprise, and determines what category of music fits the mood best. This is done using an algorithm that weighs each emotion score and produces a qualitative result: category of music.
+whatsTheVibe receives an object containing 9 emotion scores: happy, sad, angry, confused, disgusted, surprised, calm, unknown, fear, and determines what category of music fits the mood best. This is done using an algorithm that weighs each emotion score and produces a qualitative result: category of music.
 
 # vibeSet
 
